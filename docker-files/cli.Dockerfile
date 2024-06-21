@@ -14,7 +14,7 @@ RUN go mod download
 RUN go build -o ./out/prana ./cmd/prana
 
 # Start fresh from a smaller image
-FROM alpine:latest
+FROM alpine:3
 RUN apk add bash
 
 COPY --from=build_base /tmp/pranadb/out/prana /usr/local/bin
