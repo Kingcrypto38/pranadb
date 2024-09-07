@@ -20,7 +20,7 @@ COPY . .
 RUN go build -tags musl -o ./out/pranadb ./cmd/pranadb
 
 # Start fresh from a smaller image
-FROM alpine:latest
+FROM alpine:3.20.3
 RUN apk add bash
 
 COPY --from=build_base /tmp/pranadb/out/pranadb /usr/local/bin
